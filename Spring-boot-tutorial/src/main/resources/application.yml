@@ -1,0 +1,42 @@
+server:
+  port: '8080'
+
+spring:
+  profiles:
+    active: qa
+---
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    url: jdbc:postgresql://localhost:5432/newdatabase
+    password: jims1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+---
+spring:
+  profiles: qa
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    url: jdbc:postgresql://localhost:5432/newdatabase-qa
+    password: jims1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+---
+spring:
+  profiles: prod
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    url: jdbc:postgresql://localhost:5432/newdatabase-prod
+    password: jims1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
